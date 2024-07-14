@@ -1,33 +1,15 @@
 <template>
-  <q-page>
-    <q-layout>
-      <q-header class="text-h5">Quasar Key-Value Template Renderer</q-header>
-      <q-page-container>
-        <q-page>
-          <q-card>
-            <q-card-section>
-              <KeyValueInput v-model:keyValuePairs.sync="keyValuePairs" />
-            </q-card-section>
-          </q-card>
-          <q-card>
-            <q-card-section>
-              <TemplateEditor v-model:template.sync="template" />
-            </q-card-section>
-          </q-card>
-          <q-card>
-            <q-card-section>
-              <TemplateRenderer
-                :key="rendererKey"
-                :template="template"
-                :keyValuePairs="keyValuePairs"
-              />
-            </q-card-section>
-          </q-card>
-          {{ template }}
-        </q-page>
-      </q-page-container>
-    </q-layout>
-  </q-page>
+  <q-col>
+    <KeyValueInput v-model:keyValuePairs.sync="keyValuePairs" />
+    <TemplateEditor v-model:template.sync="template" />
+  </q-col>
+  <q-col>
+    <TemplateRenderer
+      :key="rendererKey"
+      :template="template"
+      :keyValuePairs="keyValuePairs"
+    />
+  </q-col>
 </template>
 
 <script>
